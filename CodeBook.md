@@ -28,4 +28,13 @@ For each record in the dataset it is provided:
 In this step, the data sets are downloaded and unzipped. Eight files are located in "activityLable", "features", "x_train", "y_train", "subject_train", "x_test", "y_test", and "subject_test". Column names are also cleaned up in this step. After combining train and test data sets, a final data set is generated under "all".
 
 ### Step 2: Extracts only the measurements on the mean and standard deviation for each measurement.
-Create a vector for defining ID, mean and standard deviation, and then filter out all the column names which are not related to mean and standard deviation
+Create a vector for defining ID, mean and standard deviation, and then filter out all the column names which are not related to mean and standard deviation. The new subset data can be found under "all_filtered_names".
+
+## Step 3: Uses descriptive activity names to name the activities in the data set.
+Merge "all_filtered_names" table with the "activityLabel" table by ActivityId in order to inlude the descriptive activity names.
+
+## Step 4: Appropriately labels the data set with descriptive variable names.
+Use gsub function to clean up the column names, including removing brackets, cleaning up upper/lower characters, refining column names, etc.
+
+## Step 5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+In this step, use aggregate function to calculate means for each variable based on each activity and each subject. After cleaning up the column names and column orders, use the write.table function to output the new data set "nd" called "newData.txt" into the destination path.
