@@ -99,3 +99,6 @@ colnames(nd)[c(1,2,3)] = c("SubjectId","ActivityId","ActivityName")
 nd <- nd[,c(2,3,1,4:82)]
 ##sort by ActivityId
 nd <- arrange(nd,ActivityId)
+##write second tidy data set into a txt file in destination path
+setwd("C:/CiCi/R Programming/Course 3 Getting and Cleanning Data")
+write.table(nd,"newData.txt",row.names = FALSE)
